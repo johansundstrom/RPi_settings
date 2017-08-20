@@ -1,4 +1,4 @@
-# RPi_settings
+### RPi_settings
 ## Setup File Share och VNCServer
 ```bash
 sudo apt update && sudo apt full-upgrade
@@ -30,4 +30,21 @@ Lägg till följande i slutet på filen smb.conf...
  ```
 ```bash
 sudo smbpasswd -a pi
+```
+## Fixed IP
+```
+sudo nano /etc/dhcpcd.conf
+```
+```
+interface eth0
+
+static ip_address=192.168.0.10/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+interface wlan0
+
+static ip_address=192.168.0.200/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
 ```
